@@ -22,7 +22,7 @@
 	#define RED CC_COLOR_RED
 #endif
 
-#define CC_VERSION 1.5
+#define CC_VERSION 1.6
 #define CC_MAX_TEAM_SIZE 10
 #define CC_MAX_PLAYERS 32
 #define CC_MAX_PREFIX_SIZE 64
@@ -164,7 +164,7 @@ stock CC_SendMessage(const id, const szInput[], any:...)
  *
  * @note 	You can use the iPlayer argument to set a specific color instead of matching it automtaically.
 			To do this, you can use one of the following color arguments:
-			CC_COLORS_TEAM, CC_COLORS_GREY (or CC_COLORS_WHITE), CC_COLORS_BLUE, CC_COLORS_RED.
+			CC_COLOR_TEAM, CC_COLOR_GREY (or CC_COLOR_WHITE), CC_COLOR_BLUE, CC_COLOR_RED.
 *
  * @param id     	Client index (use 0 to send to all players)
  * @param iPlayer   Matching player's index
@@ -214,6 +214,35 @@ stock CC_SendMatched(const id, const iPlayer, const szInput[], any:...)
 	}
 	
 	return CC_SendMessage(id, szMessage)
+}
+
+/**
+ * Sends a colored chat message to a group of players matching the flags from the get_players() function.
+ *
+ * @note 	You can see all the available flags here: https://www.amxmodx.org/api/amxmodx/get_players
+*
+ * @param szFlags   Filtering flags
+ * @param szParams  String to match against if the flags require it
+ * @param szInput	The message to send
+ * @param ... 		Variable number of formatting parameters
+ *
+ * @return          Length of the printed message or 0 if no players were matched
+ */
+stock CC_GroupMessage(const szFlags[] = "", const szParams[] = "", const szInput[], any:...)
+{
+	static szMessage[CC_MAX_MESSAGE_SIZE], iPlayers[32], iPnum
+	vformat(szMessage, charsmax(szMessage), szInput, 4)
+	get_players(iPlayers, iPnum, szFlags, szParams)
+	
+	if(!iPnum)
+		return 0
+	
+	static i
+	
+	for(i = 0; i < iPnum; i++)
+		CC_SendMessage(iPlayers[i], szMessage)
+	
+	return strlen(szMessage)
 }
 
 /**
