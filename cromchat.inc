@@ -778,9 +778,9 @@ stock _CC_GetActivityPrefix(const id, szPrefix[CC_MAX_ACT_PREFIX_SIZE], const iL
 /**
  * Checks whether or not the client has the required flag to be marked as an admin for the "ShowActivity" functions.
  *
- * @param      	
+ * @param id     	Client index
  *
- * @return          
+ * @return          True if he has, false otherwise
  */
 stock bool:_CC_IsActivityAdmin(const id)
 {
