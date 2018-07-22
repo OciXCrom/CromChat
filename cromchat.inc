@@ -756,7 +756,7 @@ stock _CC_SendTeamInfo(const id, const szTeam[CC_MAX_TEAM_SIZE])
  *
  * @noreturn
  */
- stock _CC_ActivityInit()
+stock _CC_ActivityInit()
  {
  	CC_FIRST_TIME_ACTIVITY = false
  	CC_ACTIVITY_POINTER = get_cvar_pointer(CC_ACTIVITY_CVAR)
