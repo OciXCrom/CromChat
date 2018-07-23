@@ -28,11 +28,11 @@
 	#define show_activity_key CC_ShowActivityKey
 #endif
 
-#define CC_VERSION 				2.1
+#define CC_VERSION 					2.1
 #define CC_MAX_TEAM_SIZE 			10
-#define CC_MAX_ACT_PREFIX_SIZE 	10
-#define CC_MAX_PLAYERS 			32
-#define CC_MAX_PREFIX_SIZE 		64
+#define CC_MAX_ACT_PREFIX_SIZE 		10
+#define CC_MAX_PLAYERS 				32
+#define CC_MAX_PREFIX_SIZE 			64
 #define CC_MAX_MESSAGE_SIZE 		188
 #define CC_FILTERING_FLAGS			"ch"
 #define CromChat 					CC_SendMessage
@@ -72,17 +72,17 @@ enum
 	CC_COLORS_CUSTOM
 }
 
-#define CC_SYM_MENU_YELLOW 		"\y"
+#define CC_SYM_MENU_YELLOW 			"\y"
 #define CC_SYM_MENU_WHITE 			"\w"
 #define CC_SYM_MENU_GREY 			"\d"
 #define CC_SYM_MENU_RIGHT 			"\R"
 
-#define CC_SYM_CHAT_DEF_NORMAL 	"^x01"
+#define CC_SYM_CHAT_DEF_NORMAL 		"^x01"
 #define CC_SYM_CHAT_DEF_TEAM 		"^x03"
 #define CC_SYM_CHAT_DEF_GREEN 		"^x04"
 
 #define CC_SYM_TEAM_T 				"TERRORIST"
-#define CC_SYM_TEAM_CT 			"CT"
+#define CC_SYM_TEAM_CT 				"CT"
 #define CC_SYM_TEAM_SPEC 			"SPECTATOR"
 
 #define CC_ACTIVITY_CVAR 			"amx_show_activity"
@@ -94,7 +94,7 @@ new const CC_MENU_COLORS[][] = { CC_SYM_MENU_YELLOW, CC_SYM_MENU_WHITE, CC_SYM_M
 
 #if CC_COLORS_TYPE == CC_COLORS_CUSTOM
 	#if !defined CC_SYM_CHAT_NORMAL
-		#define CC_SYM_CHAT_NORMAL 	"&x01"
+		#define CC_SYM_CHAT_NORMAL 		"&x01"
 	#endif
 	
 	#if !defined CC_SYM_CHAT_TEAM
@@ -114,7 +114,7 @@ new const CC_MENU_COLORS[][] = { CC_SYM_MENU_YELLOW, CC_SYM_MENU_WHITE, CC_SYM_M
 	#endif
 	
 	#if !defined CC_SYM_CHAT_RED
-		#define CC_SYM_CHAT_RED		"&x07"
+		#define CC_SYM_CHAT_RED			"&x07"
 	#endif
 	
 	#if !defined CC_SYM_CHAT_NOPREF
@@ -122,53 +122,53 @@ new const CC_MENU_COLORS[][] = { CC_SYM_MENU_YELLOW, CC_SYM_MENU_WHITE, CC_SYM_M
 	#endif
 #else	
 	#if CC_COLORS_TYPE == CC_COLORS_CROMCHAT
-		#define CC_SYM_CHAT_NORMAL 	"&x01"
+		#define CC_SYM_CHAT_NORMAL 		"&x01"
 		#define CC_SYM_CHAT_TEAM 		"&x03"
 		#define CC_SYM_CHAT_GREEN 		"&x04"
 		#define CC_SYM_CHAT_WHITE 		"&x05"
 		#define CC_SYM_CHAT_BLUE 		"&x06"
 		#define CC_SYM_CHAT_RED 		"&x07"
-		#define CC_SYM_CHAT_NOPREF 	"&x00"
+		#define CC_SYM_CHAT_NOPREF 		"&x00"
 	#endif
 	
 	#if CC_COLORS_TYPE == CC_COLORS_SHORT
-		#define CC_SYM_CHAT_NORMAL 	"!n"
+		#define CC_SYM_CHAT_NORMAL 		"!n"
 		#define CC_SYM_CHAT_TEAM 		"!t"
 		#define CC_SYM_CHAT_GREEN 		"!g"
 		#define CC_SYM_CHAT_WHITE 		"!w"
 		#define CC_SYM_CHAT_BLUE 		"!b"
 		#define CC_SYM_CHAT_RED 		"!r"
-		#define CC_SYM_CHAT_NOPREF 	"!p"
+		#define CC_SYM_CHAT_NOPREF 		"!p"
 	#endif
 	
 	#if CC_COLORS_TYPE == CC_COLORS_NAMED
-		#define CC_SYM_CHAT_NORMAL 	"{normal}"
+		#define CC_SYM_CHAT_NORMAL 		"{normal}"
 		#define CC_SYM_CHAT_TEAM 		"{team}"
 		#define CC_SYM_CHAT_GREEN 		"{green}"
 		#define CC_SYM_CHAT_WHITE 		"{white}"
 		#define CC_SYM_CHAT_BLUE 		"{blue}"
 		#define CC_SYM_CHAT_RED 		"{red}"
-		#define CC_SYM_CHAT_NOPREF 	"{nopref}"
+		#define CC_SYM_CHAT_NOPREF 		"{nopref}"
 	#endif
 	
 	#if CC_COLORS_TYPE == CC_COLORS_NAMED_SHORT
-		#define CC_SYM_CHAT_NORMAL 	"{n}"
+		#define CC_SYM_CHAT_NORMAL 		"{n}"
 		#define CC_SYM_CHAT_TEAM 		"{t}"
 		#define CC_SYM_CHAT_GREEN 		"{g}"
 		#define CC_SYM_CHAT_WHITE 		"{w}"
 		#define CC_SYM_CHAT_BLUE 		"{b}"
 		#define CC_SYM_CHAT_RED 		"{r}"
-		#define CC_SYM_CHAT_NOPREF 	"{p}"
+		#define CC_SYM_CHAT_NOPREF 		"{p}"
 	#endif
 	
 	#if CC_COLORS_TYPE == CC_COLORS_STANDARD
-		#define CC_SYM_CHAT_NORMAL 	"^1"
+		#define CC_SYM_CHAT_NORMAL 		"^1"
 		#define CC_SYM_CHAT_TEAM 		"^3"
 		#define CC_SYM_CHAT_GREEN 		"^4"
 		#define CC_SYM_CHAT_WHITE 		"^5"
 		#define CC_SYM_CHAT_BLUE 		"^6"
 		#define CC_SYM_CHAT_RED 		"^7"
-		#define CC_SYM_CHAT_NOPREF 	"^0"
+		#define CC_SYM_CHAT_NOPREF 		"^0"
 	#endif
 #endif
 
@@ -208,7 +208,7 @@ stock CC_SendMessage(const id, const szInput[], any:...)
 	szMessage[0] = 0x01
 	szTeam[0] = EOS
 	
-	bNoPrefix = bool:equal(szMessage[1], CC_NO_PREFIX, charsmax(CC_NO_PREFIX))
+	bNoPrefix = bool:(equal(szMessage[1], CC_NO_PREFIX, charsmax(CC_NO_PREFIX)) || equal(szMessage[2], CC_NO_PREFIX, charsmax(CC_NO_PREFIX)))
 	
 	if(bNoPrefix)
 		replace(szMessage, charsmax(szMessage), CC_NO_PREFIX, "")
