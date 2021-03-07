@@ -31,6 +31,14 @@
 	#define show_activity_key CC_ShowActivityKey
 #endif
 
+#if !defined CC_DONT_OVERWRITE_WPMG
+	#define PrintChatColor CC_SendMatched
+	#define PRINT_COLOR_GREY CC_COLOR_GREY
+	#define PRINT_COLOR_RED CC_COLOR_RED
+	#define PRINT_COLOR_BLUE CC_COLOR_BLUE
+	#define PRINT_COLOR_PLAYERTEAM CC_COLOR_TEAM
+#endif
+
 #if !defined CC_DONT_OVERWRITE_CHATPRINT
 	#define ChatPrint CC_SendMessage
 #endif
