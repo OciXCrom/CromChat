@@ -229,8 +229,35 @@ stock CC_SendMessage(id, const input[], any:...)
 		}
 	}
 	
-	static szMessage[CC_MAX_MESSAGE_SIZE], bool:bNoPrefix, i
-	vformat(szMessage[1], charsmax(szMessage), input, 3)
+	static szMessage[CC_MAX_MESSAGE_SIZE]
+	
+	
+	if(id)
+	{
+		vformat(szMessage[1], charsmax(szMessage), input, 3)
+		_CC_FormatMessage(szMessage)
+		_CC_WriteMessage(id, szMessage)
+	}
+	else
+	{
+		for(new i = 0; i < iPnum; i++)
+		{
+			SetGlobalTransTarget(iPlayers[i]);
+			vformat(szMessage[1], charsmax(szMessage), input, 3)
+			_CC_FormatMessage(szMessage)
+			_CC_WriteMessage(iPlayers[i], szMessage)
+		}
+	}
+
+	CC_COLOR_FORCE = false
+	CC_COLOR_PLAYER_INDEX = 0
+
+	return strlen(szMessage)
+}
+
+stock _CC_FormatMessage(szMessage[CC_MAX_MESSAGE_SIZE]) 
+{
+	static bool:bNoPrefix, i
 	szMessage[0] = 0x01
 	
 	bNoPrefix = bool:(equal(szMessage[1], CC_NO_PREFIX, charsmax(CC_NO_PREFIX)) || equal(szMessage[2], CC_NO_PREFIX, charsmax(CC_NO_PREFIX)))
@@ -287,23 +314,6 @@ stock CC_SendMessage(id, const input[], any:...)
 			break
 		}
 	}
-	
-	if(id)
-	{
-		_CC_WriteMessage(id, szMessage)
-	}
-	else
-	{
-		for(i = 0; i < iPnum; i++)
-		{
-			_CC_WriteMessage(iPlayers[i], szMessage)
-		}
-	}
-
-	CC_COLOR_FORCE = false
-	CC_COLOR_PLAYER_INDEX = 0
-
-	return strlen(szMessage)
 }
 
 /**
